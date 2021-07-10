@@ -38,6 +38,7 @@ Categories.AddCategory = function CategoriesAddCategory({ ...restProps }) {
   return (
     <AddCategory {...restProps}>
       <FolderAddIcon width='24px' />
+      <Text {...restProps}>Add Category</Text>
     </AddCategory>
   );
 };
