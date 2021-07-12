@@ -5,7 +5,6 @@ export const Container = styled.div`
   border-right-width: 1px;
   width: 250px;
   height: 100vh;
-  padding: 2rem 0.5rem;
-  padding-left: 1rem;
+  padding: 0.5rem;
   background-color: #e9eef6;
 `;

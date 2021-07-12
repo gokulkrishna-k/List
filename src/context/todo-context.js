@@ -1,14 +1,58 @@
 import { useState, useReducer, createContext } from 'react';
-import { AddTodoItem, DeleteTodoItem } from './todo-context.utils';
+import { AddTodoItem, DeleteTodoItem, AddCategory } from './todo-context.utils';
 
 export const TodoListContext = createContext([]);
 
 const defaultState = {
-  todos: [],
+  selectedCategory: 'All',
+  categories: [
+    {
+      id: '423434',
+      categoryName: 'Work',
+      color: '#1665d8',
+    },
+    {
+      id: '4232434',
+      categoryName: 'Projects',
+      color: '#1665d8',
+    },
+    {
+      id: '4234534',
+      categoryName: 'Anime',
+      color: '#1665d8',
+    },
+  ],
+  todos: [
+    {
+      id: 'jh34h32jk4h34j3h4jh4234jk2h',
+      todo: 'todo-work',
+      category: 'Work',
+    },
+    {
+      id: 'jh34h334j2545jh4234jk2h',
+      todo: 'todo-project',
+      category: 'Projects',
+    },
+    {
+      id: 'jh34h32j99993h49739744234jk2h',
+      todo: 'todo-anime',
+      category: 'Anime',
+    },
+  ],
 };
 
 const todoReducer = (state, action) => {
   switch (action.type) {
+    case 'SET_CATEGORY':
+      return {
+        ...state,
+        categories: AddCategory(state.categories, action.payload),
+      };
+    case 'ADD_CATEGORY':
+      return {
+        ...state,
+        selectedCategory: action.payload,
+      };
     case 'ADD_TODO':
       return {
         ...state,

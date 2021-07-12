@@ -1,14 +1,22 @@
 import styled from 'styled-components/macro';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  width: 100%;
+  margin: auto;
+`;
 
 export const Category = styled.div`
-  width: 100%;
+  width: auto;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 10px 0px;
+  padding: 10px 0px 10px 10px;
+  border-radius: 7px;
   cursor: pointer;
+
+  &:hover {
+    background-color: #d2e5ffe8;
+  }
 `;
 
 export const Text = styled.span`
@@ -27,7 +35,7 @@ export const AddCategory = styled.button`
   width: 200px;
   margin: auto;
   cursor: pointer;
-  margin-top: 5px;
+  margin-top: 15px;
   margin-bottom: 5px;
   background-color: var(--primary-color);
   color: white;
