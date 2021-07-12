@@ -43,12 +43,12 @@ const defaultState = {
 
 const todoReducer = (state, action) => {
   switch (action.type) {
-    case 'SET_CATEGORY':
+    case 'ADD_CATEGORY':
       return {
         ...state,
         categories: AddCategory(state.categories, action.payload),
       };
-    case 'ADD_CATEGORY':
+    case 'SET_CATEGORY':
       return {
         ...state,
         selectedCategory: action.payload,

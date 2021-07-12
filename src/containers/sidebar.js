@@ -17,7 +17,7 @@ const SideBar = ({ ...restProps }) => {
     <SideBarWrapper {...restProps}>
       <Logo />
       <Categories>
-        <Categories.All onClick={() => handleClick("All")} />
+        <Categories.All onClick={() => handleClick('All')} />
         {categories.map((category) => (
           <Categories.Category
             key={category.id}
