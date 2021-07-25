@@ -15,5 +15,5 @@ export const DeleteTodoItem = (todoList, itemToDeleteId) => {
 };
 
 export const AddCategory = (categories, categoryToAdd) => {
-  return [...categories, { id: uuid(), categoryToAdd, color: '#1665d8' }];
+  return [...categories, { id: uuid(), ...categoryToAdd }];
 };

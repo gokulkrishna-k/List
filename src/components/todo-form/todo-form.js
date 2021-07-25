@@ -7,7 +7,7 @@ export default function TodoForm({ children, ...restProps }) {
 }
 
 TodoForm.Input = function TodoFormInput({ ...restProps }) {
-  return <Input {...restProps} />;
+  return <Input {...restProps} placeholder='Add Something...' />;
 };
 
 TodoForm.Button = function TodoFormButton({ children, ...restProps }) {

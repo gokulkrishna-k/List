@@ -32,6 +32,14 @@ const Todos = ({ category, ...restProps }) => {
   const handleDelete = (id) => {
     dispatch({ type: 'DELETE_TODO', payload: id });
   };
+
+  const getCategoryColor = (categoryName) => {
+    const filterCat = state.categories.filter(
+      (category) => categoryName === category.categoryName
+    );
+    return filterCat[0];
+  };
+
   return (
     <TodosWrapper>
       {selectedCategory !== 'All' && (
@@ -41,15 +49,16 @@ const Todos = ({ category, ...restProps }) => {
         </TodoForm>
       )}
 
+      <TodosWrapper.Title>{selectedCategory}</TodosWrapper.Title>
       <TodoListWrapper>
-        <TodoListWrapper.Title>{selectedCategory}</TodoListWrapper.Title>
         {TodoList.map((todo) => {
           if (
             todo.category === selectedCategory ||
             selectedCategory === 'All'
           ) {
+            const color = getCategoryColor(todo.category);
             return (
-              <TodoItem key={todo.id}>
+              <TodoItem key={todo.id} categoryColor={color.color}>
                 <TodoItem.Text>{todo.todo}</TodoItem.Text>
                 <TodoItem.DeleteButton onClick={() => handleDelete(todo.id)} />
               </TodoItem>

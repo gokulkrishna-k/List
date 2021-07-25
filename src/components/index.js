@@ -1,5 +1,3 @@
-export { default as Input } from './input/input';
-export { default as Button } from './button/button';
 export { default as TodoItem } from './todo-item/todo-item';
 export { default as Logo } from './logo/logo';
 export { default as Categories } from './categories/categories';

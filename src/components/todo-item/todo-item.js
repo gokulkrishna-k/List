@@ -1,8 +1,13 @@
 import React from 'react';
-import { Text, DeleteButton, Container } from './todo.styles';
+import { Text, DeleteButton, Container } from './todo-item.styles';
+import { TrashIcon } from '@heroicons/react/solid';
 
-export default function TodoItem({ children, ...restProps }) {
-  return <Container>{children}</Container>;
+export default function TodoItem({ children, categoryColor, ...restProps }) {
+  return (
+    <Container categoryColor={categoryColor} {...restProps}>
+      {children}
+    </Container>
+  );
 }
 
 TodoItem.Text = function TodoItemText({ children, ...restProps }) {
@@ -10,5 +15,9 @@ TodoItem.Text = function TodoItemText({ children, ...restProps }) {
 };
 
 TodoItem.DeleteButton = function TodoItemDeleteButton({ ...restProps }) {
-  return <DeleteButton {...restProps}>Delete</DeleteButton>;
+  return (
+    <DeleteButton {...restProps}>
+      <TrashIcon height='30px' />
+    </DeleteButton>
+  );
 };

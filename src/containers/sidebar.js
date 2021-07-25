@@ -1,13 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { Logo, Categories, SideBarWrapper } from '../components';
 import { TodoListContext } from '../context/todo-context';
+import AddCategoryForm from './add-category-form';
 
 const SideBar = ({ ...restProps }) => {
+  // context
   const { state, dispatch } = useContext(TodoListContext);
-  const categories = state.categories;
-  const selectedCategory = state.selectedCategory;
-  console.log(selectedCategory);
+  const { categories, selectedCategory } = state;
+  // State
+  const [showCategories, setShowCategories] = useState(true);
+  const [showAddCategory, setshowAddCategory] = useState(false);
 
+  // Set selected Category
   const handleClick = (category) => {
     if (category === selectedCategory) return;
     dispatch({ type: 'SET_CATEGORY', payload: category });
@@ -16,17 +20,39 @@ const SideBar = ({ ...restProps }) => {
   return (
     <SideBarWrapper {...restProps}>
       <Logo />
-      <Categories>
-        <Categories.All onClick={() => handleClick('All')} />
-        {categories.map((category) => (
-          <Categories.Category
-            key={category.id}
-            categoryName={category.categoryName}
-            onClick={() => handleClick(category.categoryName)}
+      {showCategories && (
+        <>
+          <Categories>
+            <Categories.All
+              onClick={() => handleClick('All')}
+              selected={selectedCategory === 'All' ? true : false}
+            />
+            {categories.map((category) => (
+              <Categories.Category
+                key={category.id}
+                categoryName={category.categoryName}
+                categoryColor={category.color}
+                selected={
+                  category.categoryName === selectedCategory ? true : false
+                }
+                onClick={() => handleClick(category.categoryName)}
+              />
+            ))}
+          </Categories>
+          <Categories.AddCategory
+            onClick={() => {
+              setShowCategories(false);
+              setshowAddCategory(true);
+            }}
           />
-        ))}
-      </Categories>
-      <Categories.AddCategory />
+        </>
+      )}
+      {showAddCategory && (
+        <AddCategoryForm
+          setshowAddCategory={setshowAddCategory}
+          setShowCategories={setShowCategories}
+        />
+      )}
     </SideBarWrapper>
   );
 };

@@ -9,33 +9,158 @@ const defaultState = {
     {
       id: '423434',
       categoryName: 'Work',
-      color: '#1665d8',
+      color: '#167D7F',
     },
     {
       id: '4232434',
       categoryName: 'Projects',
-      color: '#1665d8',
+      color: '#603F8B',
+    },
+
+    {
+      id: '423534',
+      categoryName: 'Anime',
+      color: '#F41F4E',
     },
     {
-      id: '4234534',
+      id: '423434',
+      categoryName: 'Work',
+      color: '#167D7F',
+    },
+    {
+      id: '4232434',
+      categoryName: 'Projects',
+      color: '#603F8B',
+    },
+
+    {
+      id: '423534',
       categoryName: 'Anime',
-      color: '#1665d8',
+      color: '#F41F4E',
+    },
+    {
+      id: '423434',
+      categoryName: 'Work',
+      color: '#167D7F',
+    },
+    {
+      id: '4232434',
+      categoryName: 'Projects',
+      color: '#603F8B',
+    },
+
+    {
+      id: '423534',
+      categoryName: 'Anime',
+      color: '#F41F4E',
+    },
+    {
+      id: '423434',
+      categoryName: 'Work',
+      color: '#167D7F',
+    },
+    {
+      id: '4232434',
+      categoryName: 'Projects',
+      color: '#603F8B',
+    },
+
+    {
+      id: '423534',
+      categoryName: 'Anime',
+      color: '#F41F4E',
     },
   ],
   todos: [
     {
       id: 'jh34h32jk4h34j3h4jh4234jk2h',
-      todo: 'todo-work',
+      todo: 'Send the mail',
       category: 'Work',
     },
     {
-      id: 'jh34h334j2545jh4234jk2h',
-      todo: 'todo-project',
+      id: 'jh34h3342545jh4234jk2h',
+      todo: 'Get back to the project soon',
       category: 'Projects',
     },
     {
-      id: 'jh34h32j99993h49739744234jk2h',
-      todo: 'todo-anime',
+      id: 'jh34h32j99993h49739744234j2h',
+      todo: 'Watch Attack on Titans',
+      category: 'Anime',
+    },
+    {
+      id: 'jh4h32jk4h3h4jh4234jk2h',
+      todo: 'Finish and send the report on Monday',
+      category: 'Work',
+    },
+    {
+      id: 'jh34h334j2545j34jh',
+      todo: 'Finish the Todo App by next week',
+      category: 'Projects',
+    },
+    {
+      id: 'jh3432j99993h497744234jk2h',
+      todo: 'Watch Anime in weekend',
+      category: 'Anime',
+    },
+    {
+      id: 'jh34h32jk4h3545h4jh4234j2h',
+      todo: 'Meeting at 3.00pm on Monday',
+      category: 'Work',
+    },
+    {
+      id: 'jh4h5435334j2545j34jk2h',
+      todo: 'Start a new Project',
+      category: 'Projects',
+    },
+    {
+      id: 'jh34h324399993h49774234jk2h',
+      todo: 'Watch Jijustu Kaisen',
+      category: 'Anime',
+    },
+
+    {
+      id: 'jh3h32jk4h34j3h4jh4234jk2h',
+      todo: 'Tommorow is a holiday',
+      category: 'Work',
+    },
+    {
+      id: 'jh34h334j2545jh4234k2h',
+      todo: 'Learn React',
+      category: 'Projects',
+    },
+    {
+      id: 'jh3h32j99993h4973972h',
+      todo: 'Search new Anime',
+      category: 'Anime',
+    },
+    {
+      id: 'jh34h32jk4h3h4jh4234jk2',
+      todo: 'Search for internships',
+      category: 'Work',
+    },
+    {
+      id: 'jh34h334j2545j34jkh',
+      todo: 'Have to do a final year projects',
+      category: 'Projects',
+    },
+    {
+      id: 'jh4h32j99993h497744234jk2h',
+      todo: 'Prepare a watchlist',
+      category: 'Anime',
+    },
+    {
+      id: '4h32jk4h3545h4jh4234jkh',
+      todo: 'Attend a client call this evening',
+      category: 'Work',
+    },
+    {
+      id: 'jh34h535334j2545j34jk2h',
+      todo: 'Get back to the todo app project',
+      category: 'Projects',
+    },
+    {
+      id: 'jh34h3243744234jk2h',
+      todo: 'Watch something',
       category: 'Anime',
     },
   ],

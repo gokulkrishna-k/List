@@ -1,12 +1,21 @@
 import React from 'react';
-import { FolderIcon, HomeIcon, FolderAddIcon } from '@heroicons/react/outline';
-
+import {
+  FolderIcon,
+  HomeIcon,
+  FolderAddIcon,
+  DotsVerticalIcon,
+} from '@heroicons/react/solid';
+import { ChromePicker } from 'react-color';
 import {
   Container,
   Category,
-  Icon,
   Text,
   AddCategory,
+  ButtonContainer,
+  Input,
+  Form,
+  Button,
+  ColorPicker,
 } from './categories.styles';
 
 export default function Categories({ children, ...restProps }) {
@@ -16,7 +25,7 @@ export default function Categories({ children, ...restProps }) {
 Categories.All = function CategoriesAll({ ...restProps }) {
   return (
     <Category {...restProps}>
-      <HomeIcon width='24px' />
+      <HomeIcon height='30px' />
       <Text>All</Text>
     </Category>
   );
@@ -28,8 +37,9 @@ Categories.Category = function CategoriesCategory({
 }) {
   return (
     <Category {...restProps}>
-      <FolderIcon width='24px' />
+      <FolderIcon className='folder-icon' />
       <Text {...restProps}>{categoryName}</Text>
+      <DotsVerticalIcon className='dots' height='20px' />
     </Category>
   );
 };
@@ -37,8 +47,37 @@ Categories.Category = function CategoriesCategory({
 Categories.AddCategory = function CategoriesAddCategory({ ...restProps }) {
   return (
     <AddCategory {...restProps}>
-      <FolderAddIcon width='24px' />
+      <FolderAddIcon height='30px' />
       <Text {...restProps}>Add Category</Text>
     </AddCategory>
   );
+};
+
+Categories.AddCategoryForm = function CategoriesAddCategoryForm({
+  children,
+  ...restProps
+}) {
+  return <Form {...restProps}>{children}</Form>;
+};
+
+Categories.ButtonContainer = function CategoriesButtonContainer({
+  children,
+  ...restProps
+}) {
+  return <ButtonContainer {...restProps}>{children}</ButtonContainer>;
+};
+
+Categories.Input = function CategoriesInput({ ...restProps }) {
+  return <Input {...restProps} />;
+};
+
+Categories.ColorPicker = function CategoriesColorPicker({ ...restProps }) {
+  return (
+    <ColorPicker>
+      <ChromePicker {...restProps} />
+    </ColorPicker>
+  );
+};
+Categories.Button = function CategoriesButton({ children, ...restProps }) {
+  return <Button {...restProps}>{children}</Button>;
 };
