@@ -2,14 +2,17 @@ import React, { useState, useContext } from 'react';
 import { Logo, Categories, SideBarWrapper } from '../components';
 import { TodoListContext } from '../context/todo-context';
 import AddCategoryForm from './add-category-form';
+import EditCategoryForm from './edit-category-form';
 
 const SideBar = ({ ...restProps }) => {
   // context
   const { state, dispatch } = useContext(TodoListContext);
   const { categories, selectedCategory } = state;
+  console.log(categories);
   // State
   const [showCategories, setShowCategories] = useState(true);
   const [showAddCategory, setshowAddCategory] = useState(false);
+  const [showEditCategory, setshowEditCategory] = useState(false);
 
   // Set selected Category
   const handleClick = (category) => {
@@ -32,10 +35,12 @@ const SideBar = ({ ...restProps }) => {
                 key={category.id}
                 categoryName={category.categoryName}
                 categoryColor={category.color}
-                selected={
-                  category.categoryName === selectedCategory ? true : false
-                }
-                onClick={() => handleClick(category.categoryName)}
+                selected={category.id === selectedCategory ? true : false}
+                onClick={() => handleClick(category.id)}
+                onEdit={() => {
+                  setshowEditCategory(true);
+                  setShowCategories(false);
+                }}
               />
             ))}
           </Categories>
@@ -50,6 +55,12 @@ const SideBar = ({ ...restProps }) => {
       {showAddCategory && (
         <AddCategoryForm
           setshowAddCategory={setshowAddCategory}
+          setShowCategories={setShowCategories}
+        />
+      )}
+      {showEditCategory && (
+        <EditCategoryForm
+          setshowEditCategory={setshowEditCategory}
           setShowCategories={setShowCategories}
         />
       )}

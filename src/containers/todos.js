@@ -33,15 +33,16 @@ const Todos = ({ category, ...restProps }) => {
     dispatch({ type: 'DELETE_TODO', payload: id });
   };
 
-  const getCategoryColor = (categoryName) => {
+  const getCategory = (categoryId) => {
     const filterCat = state.categories.filter(
-      (category) => categoryName === category.categoryName
+      (category) => categoryId === category.id
     );
     return filterCat[0];
   };
+  const filterSelectedCategory = getCategory(selectedCategory);
 
   return (
-    <TodosWrapper>
+    <TodosWrapper {...restProps}>
       {selectedCategory !== 'All' && (
         <TodoForm onSubmit={handleSubmit}>
           <TodoForm.Input onChange={handleChange} value={todoInput} />
@@ -49,14 +50,17 @@ const Todos = ({ category, ...restProps }) => {
         </TodoForm>
       )}
 
-      <TodosWrapper.Title>{selectedCategory}</TodosWrapper.Title>
+      <TodosWrapper.Title>
+        {filterSelectedCategory ? filterSelectedCategory.categoryName : 'All'}
+      </TodosWrapper.Title>
       <TodoListWrapper>
         {TodoList.map((todo) => {
           if (
             todo.category === selectedCategory ||
             selectedCategory === 'All'
           ) {
-            const color = getCategoryColor(todo.category);
+            const color = getCategory(todo.category);
+
             return (
               <TodoItem key={todo.id} categoryColor={color.color}>
                 <TodoItem.Text>{todo.todo}</TodoItem.Text>

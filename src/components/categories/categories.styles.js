@@ -44,7 +44,7 @@ export const Category = styled.div`
   transition: all 0.2s ease;
   ${({ selected, categoryColor }) =>
     selected
-      ? `border-left: 4px solid ${categoryColor}; background-color: #d2e5ffe8;`
+      ? `border-left: 4px solid ${categoryColor}; background-color: #C3DBFF;`
       : `border-left: 4px solid ${categoryColor}`};
 
   margin: 10px 0px;
@@ -58,14 +58,13 @@ export const Category = styled.div`
     top: 50%;
     right: 3px;
     transform: translateY(-50%);
-    color: #7c7c7c;
+    color: #5f6368;
     display: none;
-    /* background-color: red; */
     padding: 4px 0px;
   }
-  &:hover {
-    background-color: #d2e5ffe8;
 
+  &:hover {
+    background-color: #c3dbff;
     .dots {
       display: block;
     }
@@ -110,12 +109,11 @@ export const Form = styled.div`
 `;
 export const ButtonContainer = styled.div`
   width: calc(100% - 0.5rem);
-
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   margin: 10px 0px;
-  height: 35px;
 `;
 export const Input = styled.input`
   box-sizing: border-box;
@@ -129,14 +127,15 @@ export const Input = styled.input`
   width: calc(100% - 0.5rem);
 `;
 export const Button = styled.button`
-  width: 49%;
-  height: 100%;
+  width: 100%;
+  height: 35px;
   border: none;
   outline: none;
   background-color: var(--primary-color);
   color: #ffffff;
   border-radius: 2px;
   cursor: pointer;
+  margin-bottom: 5px;
   transition: all 0.2s ease;
   &:hover {
     background-color: var(--primary-color-hover);

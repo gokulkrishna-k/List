@@ -1,22 +1,26 @@
 import styled from 'styled-components/macro';
 
 export const DeleteButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   opacity: 0;
-  padding: 2px 5px;
+  /* padding: 2px 5px; */
   border: 0;
   background-color: transparent;
-  color: #eb3e3e;
-  border-radius: 3px;
+  color: #74797f;
   cursor: pointer;
   transition: all 0.2s ease;
-
   &:focus {
     opacity: 1;
+  }
+  &:hover {
+    color: #94979a;
   }
 `;
 
 export const Container = styled.div`
-  width: calc(100% - 18px);
+  width: calc(100% - 8px);
   background-color: white;
   border-left: solid 6px ${({ categoryColor }) => categoryColor};
   border-radius: 2px;
@@ -26,7 +30,6 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   &:hover {
     ${DeleteButton} {
       opacity: 1;

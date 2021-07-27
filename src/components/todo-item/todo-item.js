@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, DeleteButton, Container } from './todo-item.styles';
-import { TrashIcon } from '@heroicons/react/solid';
+import { TrashIcon, XCircleIcon } from '@heroicons/react/solid';
 
 export default function TodoItem({ children, categoryColor, ...restProps }) {
   return (
@@ -17,7 +17,7 @@ TodoItem.Text = function TodoItemText({ children, ...restProps }) {
 TodoItem.DeleteButton = function TodoItemDeleteButton({ ...restProps }) {
   return (
     <DeleteButton {...restProps}>
-      <TrashIcon height='30px' />
+      <XCircleIcon height='30px' />
     </DeleteButton>
   );
 };

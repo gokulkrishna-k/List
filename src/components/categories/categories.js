@@ -33,13 +33,14 @@ Categories.All = function CategoriesAll({ ...restProps }) {
 
 Categories.Category = function CategoriesCategory({
   categoryName,
+  onEdit,
   ...restProps
 }) {
   return (
     <Category {...restProps}>
       <FolderIcon className='folder-icon' />
       <Text {...restProps}>{categoryName}</Text>
-      <DotsVerticalIcon className='dots' height='20px' />
+      <DotsVerticalIcon className='dots' height='28px' onClick={onEdit} />
     </Category>
   );
 };
@@ -53,7 +54,7 @@ Categories.AddCategory = function CategoriesAddCategory({ ...restProps }) {
   );
 };
 
-Categories.AddCategoryForm = function CategoriesAddCategoryForm({
+Categories.CategoryForm = function CategoriesCategoryForm({
   children,
   ...restProps
 }) {

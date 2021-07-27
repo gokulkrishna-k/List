@@ -6,9 +6,10 @@ export const Form = styled.form`
 
   border-radius: 3px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.2);
-  width: calc(100% - 26px);
+  width: calc(100% - 24px);
+  margin: 10px 12px;
+
   height: 45px;
-  margin: 10px 0px;
 `;
 
 export const Input = styled.input`
@@ -17,7 +18,7 @@ export const Input = styled.input`
   border-radius: 3px 0px 0px 3px;
   padding: 0px 10px;
   outline: none;
-  padding-left: 20px;
+  padding-left: 10px;
   width: calc(100% - 150px);
 `;
 

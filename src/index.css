@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   --primary-text-color: #172b4d;
   --primary-color: #1665d8;

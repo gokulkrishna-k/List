@@ -25,7 +25,7 @@ const AddCategoryForm = ({ setshowAddCategory, setShowCategories }) => {
     setShowCategories(true);
   };
   return (
-    <Categories.AddCategoryForm>
+    <Categories.CategoryForm>
       <Categories.Input
         placeholder='Category name'
         value={categoryName}
@@ -39,6 +39,7 @@ const AddCategoryForm = ({ setshowAddCategory, setShowCategories }) => {
         disableAlpha
       />
       <Categories.ButtonContainer>
+        <Categories.Button onClick={handleSubmit}>Add</Categories.Button>
         <Categories.Button
           onClick={() => {
             setshowAddCategory(false);
@@ -47,9 +48,8 @@ const AddCategoryForm = ({ setshowAddCategory, setShowCategories }) => {
         >
           Cancel
         </Categories.Button>
-        <Categories.Button onClick={handleSubmit}>Add</Categories.Button>
       </Categories.ButtonContainer>
-    </Categories.AddCategoryForm>
+    </Categories.CategoryForm>
   );
 };
 
