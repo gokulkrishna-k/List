@@ -7,6 +7,7 @@ import {
   TodoListWrapper,
 } from '../components';
 import { TodoListContext } from '../context/todo-context';
+import { AnimatePresence } from 'framer-motion';
 
 const Todos = ({ category, ...restProps }) => {
   const { state, dispatch } = useContext(TodoListContext);
@@ -54,21 +55,25 @@ const Todos = ({ category, ...restProps }) => {
         {filterSelectedCategory ? filterSelectedCategory.categoryName : 'All'}
       </TodosWrapper.Title>
       <TodoListWrapper>
-        {TodoList.map((todo) => {
-          if (
-            todo.category === selectedCategory ||
-            selectedCategory === 'All'
-          ) {
-            const color = getCategory(todo.category);
+        <AnimatePresence>
+          {TodoList.map((todo) => {
+            if (
+              todo.category === selectedCategory ||
+              selectedCategory === 'All'
+            ) {
+              const color = getCategory(todo.category);
 
-            return (
-              <TodoItem key={todo.id} categoryColor={color.color}>
-                <TodoItem.Text>{todo.todo}</TodoItem.Text>
-                <TodoItem.DeleteButton onClick={() => handleDelete(todo.id)} />
-              </TodoItem>
-            );
-          }
-        })}
+              return (
+                <TodoItem key={todo.id} categoryColor={color.color}>
+                  <TodoItem.Text>{todo.todo}</TodoItem.Text>
+                  <TodoItem.DeleteButton
+                    onClick={() => handleDelete(todo.id)}
+                  />
+                </TodoItem>
+              );
+            }
+          })}
+        </AnimatePresence>
       </TodoListWrapper>
     </TodosWrapper>
   );

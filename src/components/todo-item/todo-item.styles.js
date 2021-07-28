@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import { motion } from 'framer-motion';
 
 export const DeleteButton = styled.button`
   display: flex;
@@ -19,7 +20,7 @@ export const DeleteButton = styled.button`
   }
 `;
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
   width: calc(100% - 8px);
   background-color: white;
   border-left: solid 6px ${({ categoryColor }) => categoryColor};

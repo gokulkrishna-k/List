@@ -2,9 +2,13 @@ import React from 'react';
 import { Text, DeleteButton, Container } from './todo-item.styles';
 import { TrashIcon, XCircleIcon } from '@heroicons/react/solid';
 
+const item = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1 },
+};
 export default function TodoItem({ children, categoryColor, ...restProps }) {
   return (
-    <Container categoryColor={categoryColor} {...restProps}>
+    <Container variants={item} categoryColor={categoryColor} {...restProps}>
       {children}
     </Container>
   );
