@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container } from './todo-list-wrapper.styles';
+import { Container, EmptyMessage } from './todo-list-wrapper.styles';
 
 const container = {
   hidden: { opacity: 0 },
@@ -24,3 +24,10 @@ export default function TodoListWrapper({ children, ...restProps }) {
     </Container>
   );
 }
+
+TodoListWrapper.EmptyMessage = function TodoListWrapperEmptyMessage({
+  children,
+  ...restProps
+}) {
+  return <EmptyMessage {...restProps}>{children}</EmptyMessage>;
+};

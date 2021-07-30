@@ -8,7 +8,7 @@ const SideBar = ({ ...restProps }) => {
   // context
   const { state, dispatch } = useContext(TodoListContext);
   const { categories, selectedCategory } = state;
-  console.log(categories);
+
   // State
   const [showCategories, setShowCategories] = useState(true);
   const [showAddCategory, setshowAddCategory] = useState(false);

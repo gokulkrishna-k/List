@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-
+import { addTodoItem, deleteTodoItem } from '../firebase/firebase.utils';
 import {
   TodoItem,
   TodoForm,
@@ -23,15 +23,18 @@ const Todos = ({ category, ...restProps }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (todoInput === '') return;
-    dispatch({
-      type: 'ADD_TODO',
-      payload: { todo: todoInput, category: selectedCategory },
-    });
+    // dispatch({
+    //   type: 'ADD_TODO',
+    //   payload: { todo: todoInput, category: selectedCategory },
+    // });
+    const itemToAdd = { todo: todoInput, category: selectedCategory };
+    addTodoItem(itemToAdd, state, dispatch);
     setTodoInput('');
   };
 
   const handleDelete = (id) => {
-    dispatch({ type: 'DELETE_TODO', payload: id });
+    deleteTodoItem(id, state, dispatch);
+    // dispatch({ type: 'DELETE_TODO', payload: id });
   };
 
   const getCategory = (categoryId) => {
@@ -41,6 +44,9 @@ const Todos = ({ category, ...restProps }) => {
     return filterCat[0];
   };
   const filterSelectedCategory = getCategory(selectedCategory);
+  const filteredTodos = TodoList.filter(
+    (todo) => todo.category === selectedCategory || selectedCategory === 'All'
+  );
 
   return (
     <TodosWrapper {...restProps}>
@@ -56,11 +62,8 @@ const Todos = ({ category, ...restProps }) => {
       </TodosWrapper.Title>
       <TodoListWrapper>
         <AnimatePresence>
-          {TodoList.map((todo) => {
-            if (
-              todo.category === selectedCategory ||
-              selectedCategory === 'All'
-            ) {
+          {filteredTodos.length > 0 ? (
+            filteredTodos.map((todo) => {
               const color = getCategory(todo.category);
 
               return (
@@ -71,8 +74,12 @@ const Todos = ({ category, ...restProps }) => {
                   />
                 </TodoItem>
               );
-            }
-          })}
+            })
+          ) : (
+            <TodoListWrapper.EmptyMessage>
+              No items found!!
+            </TodoListWrapper.EmptyMessage>
+          )}
         </AnimatePresence>
       </TodoListWrapper>
     </TodosWrapper>

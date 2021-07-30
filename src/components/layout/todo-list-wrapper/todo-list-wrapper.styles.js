@@ -25,3 +25,5 @@ export const Container = styled(motion.div)`
     background-color: #cfcfcf;
   }
 `;
+
+export const EmptyMessage = styled.h3``;

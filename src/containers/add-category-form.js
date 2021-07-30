@@ -1,9 +1,10 @@
 import React, { useState, useContext } from 'react';
 import { Categories } from '../components';
 import { TodoListContext } from '../context/todo-context';
+import { addCategory } from '../firebase/firebase.utils';
 
 const AddCategoryForm = ({ setshowAddCategory, setShowCategories }) => {
-  const { dispatch } = useContext(TodoListContext);
+  const { state, dispatch } = useContext(TodoListContext);
 
   const [categoryColor, setCategoryColor] = useState('#1665d8');
   const [categoryName, setCategoryName] = useState('');
@@ -15,10 +16,8 @@ const AddCategoryForm = ({ setshowAddCategory, setShowCategories }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (categoryName === '') return;
-    dispatch({
-      type: 'ADD_CATEGORY',
-      payload: { categoryName: categoryName, color: categoryColor },
-    });
+    const categoryToAdd = { categoryName: categoryName, color: categoryColor };
+    addCategory(categoryToAdd, state);
     setCategoryName('');
     setCategoryColor('#1665d8');
     setshowAddCategory(false);

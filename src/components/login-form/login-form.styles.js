@@ -7,12 +7,15 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  border: solid 1px #e4e4e4;
+
   /* border: 2px solid red; */
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  /* box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); */
   background-color: white;
-  padding: 4rem 2rem;
+  padding: 4rem 1.3rem;
   border-radius: 2px;
-  margin-top: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 
   font-family: 'Poppins', sans-serif;
 `;

@@ -39,12 +39,13 @@ export const Category = styled.div`
   align-items: center;
   padding: 8px 0px 8px 10px;
   border-radius: 2px;
+
   cursor: pointer;
   box-sizing: border-box;
-  transition: all 0.2s ease;
+  transition: all 0.1s ease;
   ${({ selected, categoryColor }) =>
     selected
-      ? `border-left: 4px solid ${categoryColor}; background-color: #C3DBFF;`
+      ? `border-left: 4px solid ${categoryColor}; background-color: var(--category-color); border: solid 1px var(--line-color);`
       : `border-left: 4px solid ${categoryColor}`};
 
   margin: 10px 0px;
@@ -64,7 +65,8 @@ export const Category = styled.div`
   }
 
   &:hover {
-    background-color: #c3dbff;
+    background-color: var(--category-color);
+    border: solid 1px var(--line-color);
     .dots {
       display: block;
     }
@@ -125,6 +127,9 @@ export const Input = styled.input`
   padding: 0px 10px;
   margin-bottom: 10px;
   width: calc(100% - 0.5rem);
+  border: solid 1px var(--line-color);
+  background-color: var(--primary-input-color);
+  color: var(--primary-text-color);
 `;
 export const Button = styled.button`
   width: 100%;
@@ -146,6 +151,9 @@ export const ColorPicker = styled.div`
   background-color: white;
   border-radius: 1px;
   overflow: hidden;
+  border: solid 1px var(--line-color);
+  /* background-color: var(--primary-input-color); */
+
   & > .chrome-picker {
     all: unset;
   }

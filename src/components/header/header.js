@@ -29,6 +29,6 @@ Header.DropdownItem = function HeaderDropdownItem({ children, ...restProps }) {
   return <DropdownItem {...restProps}>{children}</DropdownItem>;
 };
 
-Header.Text = function HeaderText({ children, ...restPorps }) {
+Header.Text = function HeaderText({ children, ...restProps }) {
   return <Text {...restProps}>{children}</Text>;
 };

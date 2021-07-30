@@ -5,7 +5,8 @@ export const Form = styled.form`
   align-items: center;
 
   border-radius: 3px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.2); */
+  border: solid 1px var(--line-color);
   width: calc(100% - 24px);
   margin: 10px 12px;
 
@@ -20,6 +21,8 @@ export const Input = styled.input`
   outline: none;
   padding-left: 10px;
   width: calc(100% - 150px);
+  background-color: var(--primary-input-color);
+  color: var(--primary-text-color);
 `;
 
 export const Button = styled.button`

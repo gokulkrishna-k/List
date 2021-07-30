@@ -9,23 +9,25 @@ export const DeleteButton = styled.button`
   /* padding: 2px 5px; */
   border: 0;
   background-color: transparent;
-  color: #74797f;
+  color: #94979a;
   cursor: pointer;
   transition: all 0.2s ease;
   &:focus {
     opacity: 1;
   }
   &:hover {
-    color: #94979a;
+    color: #74797f;
   }
 `;
 
 export const Container = styled(motion.div)`
   width: calc(100% - 8px);
-  background-color: white;
+  background-color: var(--todo-item-color);
+  border: solid 1px var(--line-color);
   border-left: solid 6px ${({ categoryColor }) => categoryColor};
   border-radius: 2px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.2);
+
+  /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.2); */
   margin: 0.5rem 0rem;
   padding: 15px 10px;
   display: flex;

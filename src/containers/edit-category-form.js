@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Categories } from '../components';
 import { TodoListContext } from '../context/todo-context';
+import { deleteCategory, editCategory } from '../firebase/firebase.utils';
 
 const EditCategoryForm = ({ setshowEditCategory, setShowCategories }) => {
   const { state, dispatch } = useContext(TodoListContext);
@@ -16,7 +17,6 @@ const EditCategoryForm = ({ setshowEditCategory, setShowCategories }) => {
   const [editedCategoryColor, setEditedCategoryColor] = useState(color);
   const [editedCategoryName, setEditedCategoryName] = useState(categoryName);
 
-  console.log(editedCategoryName, editedCategoryColor);
   const handleChange = (e) => {
     setEditedCategoryName(e.target.value);
   };
@@ -24,23 +24,19 @@ const EditCategoryForm = ({ setshowEditCategory, setShowCategories }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (editedCategoryName === '') return;
-    dispatch({
-      type: 'EDIT_CATEGORY',
-      payload: {
-        id: id,
-        categoryName: editedCategoryName,
-        color: editedCategoryColor,
-      },
-    });
+    const categoryToEdit = {
+      id: id,
+      categoryName: editedCategoryName,
+      color: editedCategoryColor,
+    };
+    editCategory(categoryToEdit, state);
     setshowEditCategory(false);
     setShowCategories(true);
   };
 
   const handleDelete = () => {
-    dispatch({
-      type: 'DELETE_CATEGORY',
-      payload: id,
-    });
+    deleteCategory(id, state);
+    dispatch({ type: 'SET_CATEGORY', payload: 'All' });
     setshowEditCategory(false);
     setShowCategories(true);
   };

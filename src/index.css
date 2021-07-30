@@ -5,9 +5,35 @@
 }
 
 body {
-  --primary-text-color: #172b4d;
-  --primary-color: #1665d8;
-  --primary-color-hover: #0a4fb6;
+  /* --primary-text-color: #172b4d; */
+  /* --primary-color: #1665d8; */
+  /* --primary-color-hover: #0a4fb6; */
+  /* background-color: #f5f7fb; */
+
+  /* Light Theme */
+
+  --primary-color-hover: #23272a;
+  --primary-color: #7289da;
+  --primary-color-hover: #5874d8;
+  --sidebar-color: #f6f6f6;
+  --category-color: #ffffff;
+  --categoy-select: #ffffff;
+  --main-bg-color: #ffffff;
+  --line-color: #c9c9c9;
+
+  /* Dark Theme */
+
+  /* --primary-text-color: #f8fafe;
+  --primary-color: #7289da;
+  --primary-color-hover: #5874d8;
+  --sidebar-color: #181b1d;
+  --category-color: #383d41;
+  --categoy-select: #292d30;
+  --main-bg-color: #202124;
+  --todo-item-color: #292d30;
+  --line-color: #626262;
+  --line-color: transparent;
+  --primary-input-color: #303338; */
 
   margin: 0;
   font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
@@ -16,5 +42,5 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--primary-text-color);
-  background-color: #f5f7fb;
+  background-color: var(--main-bg-color);
 }
