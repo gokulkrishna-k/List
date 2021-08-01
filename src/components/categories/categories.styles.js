@@ -5,7 +5,7 @@ export const Container = styled.div`
 
   overflow-y: scroll;
   overflow-x: hidden;
-  height: calc(100% - 125px);
+  height: calc(100% - 80px);
   padding-right: 1px;
   transition: all 0.3s ease;
 

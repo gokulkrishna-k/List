@@ -6,8 +6,9 @@ export const Container = styled(motion.div)`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: calc(100% - 24px);
-  margin: auto;
+  width: calc(100% - 10px);
+  /* margin: auto; */
+  margin-left: 10px;
   margin-top: 0;
   margin-bottom: 1rem;
   overflow-y: scroll;

@@ -1,12 +1,13 @@
 import React, { useState, useContext } from 'react';
-import { Logo, Categories, SideBarWrapper } from '../components';
+import { Categories, SideBarWrapper } from '../components';
 import { TodoListContext } from '../context/todo-context';
 import AddCategoryForm from './add-category-form';
 import EditCategoryForm from './edit-category-form';
-
+import { auth } from '../firebase/firebase';
 const SideBar = ({ ...restProps }) => {
   // context
   const { state, dispatch } = useContext(TodoListContext);
+
   const { categories, selectedCategory } = state;
 
   // State
@@ -22,7 +23,7 @@ const SideBar = ({ ...restProps }) => {
 
   return (
     <SideBarWrapper {...restProps}>
-      <Logo />
+      <button onClick={() => auth.signOut()}>Sign Out</button>
       {showCategories && (
         <>
           <Categories>

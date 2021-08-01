@@ -2,13 +2,20 @@ import { useReducer, createContext } from 'react';
 export const TodoListContext = createContext([]);
 
 const defaultState = {
+  user: JSON.parse(localStorage.getItem('authUser')),
   selectedCategory: 'All',
+  selectedTheme: 'dark',
   categories: [],
   todos: [],
 };
 
 const todoReducer = (state, action) => {
   switch (action.type) {
+    case 'SET_USER':
+      return {
+        ...state,
+        user: action.payload,
+      };
     case 'SET_CONTEXT':
       return {
         ...state,
@@ -24,6 +31,11 @@ const todoReducer = (state, action) => {
       return {
         ...state,
         selectedCategory: action.payload,
+      };
+    case 'SET_THEME':
+      return {
+        ...state,
+        selectedTheme: action.payload,
       };
   }
 };

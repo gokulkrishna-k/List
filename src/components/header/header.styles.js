@@ -2,16 +2,13 @@ import styled from 'styled-components/macro';
 
 export const Container = styled.div`
   width: 100%;
-  height: 70px;
-  background-color: white;
+  height: 50px;
+  background-color: var(--main-bg-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 2rem;
   border-bottom: solid 1px var(--line-color);
-  /* box-shadow: 0px 3px 12px 0px rgba(164, 164, 164, 0.87);
-  -webkit-box-shadow: 0px 3px 12px 0px rgba(164, 164, 164, 0.87);
-  -moz-box-shadow: 0px 3px 12px 0px rgba(164, 164, 164, 0.87); */
 `;
 
 export const Button = styled.button`
@@ -38,3 +35,5 @@ export const DropdownItem = styled.div``;
 export const Text = styled.span``;
 
 export const Burger = styled.div``;
+
+export const ThemeButton = styled.button``;

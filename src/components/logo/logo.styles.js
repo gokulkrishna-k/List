@@ -5,5 +5,5 @@ export const LogoText = styled.h1`
   font-size: 34px;
   padding: 0.5rem 0.5rem;
   margin: 0;
-  /* letter-spacing: 2px; */
+  color: var(--primary-text-color);
 `;

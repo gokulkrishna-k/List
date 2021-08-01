@@ -31,7 +31,7 @@ export const createUserProfileDocumnet = async (authUser, aditionalData) => {
 
 export const addTodoItem = async (itemToAdd, state) => {
   const prevTodos = state.todos;
-  const userRef = firestore.doc(`users/RkeuX9p7x4U6mchBxurYAGCdNnX2`);
+  const userRef = firestore.doc(`users/${state.user.uid}`);
 
   try {
     await userRef.update({
@@ -49,7 +49,7 @@ export const deleteTodoItem = async (itemToDeleteId, state) => {
   const TodoList = state.todos;
   const newTodoList = TodoList.filter((todo) => itemToDeleteId !== todo.id);
 
-  const userRef = firestore.doc(`users/RkeuX9p7x4U6mchBxurYAGCdNnX2`);
+  const userRef = firestore.doc(`users/${state.user.uid}`);
 
   try {
     await userRef.update({
@@ -65,7 +65,7 @@ export const deleteTodoItem = async (itemToDeleteId, state) => {
 
 export const addCategory = async (categoryToAdd, state) => {
   const { todos, categories } = state;
-  const userRef = firestore.doc(`users/RkeuX9p7x4U6mchBxurYAGCdNnX2`);
+  const userRef = firestore.doc(`users/${state.user.uid}`);
 
   try {
     await userRef.update({
@@ -87,7 +87,7 @@ export const deleteCategory = async (categoryIdToDelete, state) => {
 
   const newTodos = todos.filter((todo) => todo.category !== categoryIdToDelete);
 
-  const userRef = firestore.doc(`users/RkeuX9p7x4U6mchBxurYAGCdNnX2`);
+  const userRef = firestore.doc(`users/${state.user.uid}`);
 
   try {
     await userRef.update({
@@ -112,7 +112,7 @@ export const editCategory = async (categoryToEdit, state) => {
     return category;
   });
 
-  const userRef = firestore.doc(`users/RkeuX9p7x4U6mchBxurYAGCdNnX2`);
+  const userRef = firestore.doc(`users/${state.user.uid}`);
 
   try {
     await userRef.update({

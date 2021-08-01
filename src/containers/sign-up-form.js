@@ -1,14 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { LoginForm } from '../components';
 import { useHistory } from 'react-router-dom';
-import { FirebaseContext } from '../context/firebase';
 import * as ROUTES from '../constants/routes';
 import { createUserProfileDocumnet } from '../firebase/firebase.utils';
 import { auth } from '../firebase/firebase';
 
 const SignUpForm = () => {
   const history = useHistory();
-  const { firebase } = useContext(FirebaseContext);
 
   const [userName, setUserName] = useState('');
   const [emailAddress, setEmailAddress] = useState('');
@@ -19,9 +17,10 @@ const SignUpForm = () => {
   const handleSignUp = async (event) => {
     event.preventDefault();
     try {
-      const userAuth = await firebase
-        .auth()
-        .createUserWithEmailAndPassword(emailAddress, password);
+      const userAuth = await auth.createUserWithEmailAndPassword(
+        emailAddress,
+        password
+      );
       await userAuth.user.updateProfile({ displayName: userName });
       await createUserProfileDocumnet(userAuth.user);
 

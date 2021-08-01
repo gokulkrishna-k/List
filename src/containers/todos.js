@@ -23,10 +23,6 @@ const Todos = ({ category, ...restProps }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (todoInput === '') return;
-    // dispatch({
-    //   type: 'ADD_TODO',
-    //   payload: { todo: todoInput, category: selectedCategory },
-    // });
     const itemToAdd = { todo: todoInput, category: selectedCategory };
     addTodoItem(itemToAdd, state, dispatch);
     setTodoInput('');
@@ -34,7 +30,6 @@ const Todos = ({ category, ...restProps }) => {
 
   const handleDelete = (id) => {
     deleteTodoItem(id, state, dispatch);
-    // dispatch({ type: 'DELETE_TODO', payload: id });
   };
 
   const getCategory = (categoryId) => {

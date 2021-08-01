@@ -6,7 +6,6 @@ export const DeleteButton = styled.button`
   justify-content: center;
   align-items: center;
   opacity: 0;
-  /* padding: 2px 5px; */
   border: 0;
   background-color: transparent;
   color: #94979a;
@@ -26,8 +25,6 @@ export const Container = styled(motion.div)`
   border: solid 1px var(--line-color);
   border-left: solid 6px ${({ categoryColor }) => categoryColor};
   border-radius: 2px;
-
-  /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.2); */
   margin: 0.5rem 0rem;
   padding: 15px 10px;
   display: flex;

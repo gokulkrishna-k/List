@@ -7,7 +7,9 @@ import {
   Dropdown,
   DropdownItem,
   Text,
+  ThemeButton,
 } from './header.styles';
+import { MoonIcon, SunIcon } from '@heroicons/react/solid';
 
 export default function Header({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
@@ -31,4 +33,16 @@ Header.DropdownItem = function HeaderDropdownItem({ children, ...restProps }) {
 
 Header.Text = function HeaderText({ children, ...restProps }) {
   return <Text {...restProps}>{children}</Text>;
+};
+
+Header.ThemeButton = function HeaderThemeButton({ theme, ...restProps }) {
+  return (
+    <ThemeButton {...restProps}>
+      {theme === 'light' ? (
+        <MoonIcon height='24px' />
+      ) : (
+        <SunIcon height='24px' />
+      )}
+    </ThemeButton>
+  );
 };

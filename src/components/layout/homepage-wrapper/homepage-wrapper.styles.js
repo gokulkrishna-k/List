@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 
 export const Container = styled.div`
-  height: 100vh;
+  height: calc(100vh - 50px);
   overflow: hidden;
   display: flex;
   justify-content: flex-start;
