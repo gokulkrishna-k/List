@@ -9,10 +9,9 @@ import {
 import { TodoListContext } from '../context/todo-context';
 import { AnimatePresence } from 'framer-motion';
 
-const Todos = ({ category, ...restProps }) => {
+const Todos = ({ category, setSidebar, ...restProps }) => {
   const { state, dispatch } = useContext(TodoListContext);
-  const TodoList = state.todos;
-  const selectedCategory = state.selectedCategory;
+  const { todos, selectedCategory } = state;
 
   const [todoInput, setTodoInput] = useState('');
 
@@ -38,13 +37,18 @@ const Todos = ({ category, ...restProps }) => {
     );
     return filterCat[0];
   };
-  const filterSelectedCategory = getCategory(selectedCategory);
-  const filteredTodos = TodoList.filter(
-    (todo) => todo.category === selectedCategory || selectedCategory === 'All'
-  );
+
+  const filterSelectedCategory =
+    selectedCategory === 'All' ? 'All' : getCategory(selectedCategory);
+  const filteredTodos = todos
+    ? todos.filter(
+        (todo) =>
+          todo.category === selectedCategory || selectedCategory === 'All'
+      )
+    : [];
 
   return (
-    <TodosWrapper {...restProps}>
+    <TodosWrapper {...restProps} onClick={() => setSidebar(false)}>
       {selectedCategory !== 'All' && (
         <TodoForm onSubmit={handleSubmit}>
           <TodoForm.Input onChange={handleChange} value={todoInput} />
@@ -53,7 +57,9 @@ const Todos = ({ category, ...restProps }) => {
       )}
 
       <TodosWrapper.Title>
-        {filterSelectedCategory ? filterSelectedCategory.categoryName : 'All'}
+        {filterSelectedCategory === 'All'
+          ? 'All'
+          : filterSelectedCategory.categoryName}
       </TodosWrapper.Title>
       <TodoListWrapper>
         <AnimatePresence>

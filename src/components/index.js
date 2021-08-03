@@ -6,6 +6,7 @@ export { default as Categories } from './categories/categories';
 export { default as TodoForm } from './todo-form/todo-form';
 export { default as LoginForm } from './login-form/login-form';
 export { default as Header } from './header/header';
+export { default as Loading } from './loading/loading';
 
 // Layout Wrappers
 export { default as HomePageWrapper } from './layout/homepage-wrapper/homepage-wrapper';

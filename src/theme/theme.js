@@ -1,7 +1,7 @@
 export const lightTheme = {
   primaryTextColor: '#172b4d',
   primaryColor: '#7289da',
-  primaryColorHover: '#ffffff',
+  primaryColorHover: '#5874d8',
   sidebarColor: '#f6f6f6',
   categoryColor: '#ffffff',
   categoySelect: '#ffffff',

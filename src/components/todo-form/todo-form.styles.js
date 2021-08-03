@@ -3,13 +3,10 @@ import styled from 'styled-components/macro';
 export const Form = styled.form`
   display: flex;
   align-items: center;
-
   border-radius: 3px;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.2); */
   border: solid 1px var(--line-color);
   width: calc(100% - 24px);
   margin: 10px 12px;
-
   height: 45px;
 `;
 
@@ -23,6 +20,9 @@ export const Input = styled.input`
   width: calc(100% - 150px);
   background-color: var(--primary-input-color);
   color: var(--primary-text-color);
+  @media (max-width: 500px) {
+    width: calc(100% - 105px);
+  }
 `;
 
 export const Button = styled.button`
@@ -41,5 +41,12 @@ export const Button = styled.button`
 
   &:hover {
     background-color: var(--primary-color-hover);
+  }
+
+  @media (max-width: 500px) {
+    width: 105px;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 0px 10px;
   }
 `;

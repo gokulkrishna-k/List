@@ -1,50 +1,65 @@
-import React, { useContext, useEffect } from 'react';
-import { Header, HomePageWrapper } from '../components';
+import React, { useState, useContext, useEffect } from 'react';
+import { Header, HomePageWrapper, Loading } from '../components';
 import { SideBar, Todos } from '../containers';
 import { TodoListContext } from '../context/todo-context';
 import { firestore } from '../firebase/firebase';
 import { Logo } from '../components';
+import { auth } from '../firebase/firebase';
+
 const Home = () => {
   const { state, dispatch } = useContext(TodoListContext);
-
-  const user = state.user;
+  const [loading, setLoading] = useState(true);
+  const [sidebar, setSidebar] = useState(false);
+  const { user, todos } = state;
 
   useEffect(() => {
-    if (!user) {
+    if (user) {
       try {
-        firestore
-          .collection('users')
-          .doc(user.uid)
-          .onSnapshot((snapshot) => {
-            const { userData } = snapshot.data();
-            dispatch({
-              type: 'SET_CONTEXT',
-              payload: userData,
-            });
+        const userRef = firestore.collection('users').doc(user.uid);
+
+        if (userRef) {
+          userRef.onSnapshot((snapshot) => {
+            const responceData = snapshot.data();
+            if (responceData) {
+              dispatch({
+                type: 'SET_CONTEXT',
+                payload: responceData.userData,
+              });
+            }
+            setLoading(false);
           });
+        }
       } catch (error) {
         console.log(error.message);
       }
     }
   }, []);
 
-  const toggleTheme = () => {
-    dispatch({
-      type: 'SET_THEME',
-      payload: state.selectedTheme === 'light' ? 'dark' : 'light',
-    });
-    console.log(state);
-  };
   return (
     <>
-      <Header>
-        <Logo />
-        <Header.ThemeButton theme={state.selectedTheme} onClick={toggleTheme} />
-      </Header>
-      <HomePageWrapper>
-        <SideBar />
-        <Todos />
-      </HomePageWrapper>
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <Header>
+            <Header.Group>
+              <Header.Burger onClick={() => setSidebar((state) => !state)} />
+              <Logo />
+            </Header.Group>
+
+            <Header.Group>
+              <Header.ThemeButton />
+              <Header.Button onClick={() => auth.signOut()}>
+                Sign Out
+              </Header.Button>
+            </Header.Group>
+          </Header>
+          <HomePageWrapper>
+            <SideBar open={sidebar} />
+            <Todos setSidebar={setSidebar} />
+          </HomePageWrapper>
+        </>
+      )}
     </>
   );
 };

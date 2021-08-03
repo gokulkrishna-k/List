@@ -8,6 +8,8 @@ import {
   Button,
   Text,
 } from './login-form.styles';
+import BeatLoader from 'react-spinners/BeatLoader';
+
 import { ArrowSmRightIcon } from '@heroicons/react/solid';
 
 export default function LoginForm({ children, ...restProps }) {
@@ -30,10 +32,20 @@ LoginForm.Input = function LoginFormInput({ children, ...restProps }) {
   return <Input {...restProps} />;
 };
 
-LoginForm.Button = function LoginFormButton({ children, ...restProps }) {
+LoginForm.Button = function LoginFormButton({
+  loading,
+  children,
+  ...restProps
+}) {
   return (
     <Button {...restProps}>
-      {children} <ArrowSmRightIcon height='24px' />{' '}
+      {loading ? (
+        <BeatLoader color='#ffffff' loading={true} size={15} />
+      ) : (
+        <>
+          {children} <ArrowSmRightIcon height='24px' />
+        </>
+      )}
     </Button>
   );
 };

@@ -3,7 +3,7 @@ import { Categories, SideBarWrapper } from '../components';
 import { TodoListContext } from '../context/todo-context';
 import AddCategoryForm from './add-category-form';
 import EditCategoryForm from './edit-category-form';
-import { auth } from '../firebase/firebase';
+
 const SideBar = ({ ...restProps }) => {
   // context
   const { state, dispatch } = useContext(TodoListContext);
@@ -23,7 +23,6 @@ const SideBar = ({ ...restProps }) => {
 
   return (
     <SideBarWrapper {...restProps}>
-      <button onClick={() => auth.signOut()}>Sign Out</button>
       {showCategories && (
         <>
           <Categories>
@@ -31,19 +30,21 @@ const SideBar = ({ ...restProps }) => {
               onClick={() => handleClick('All')}
               selected={selectedCategory === 'All' ? true : false}
             />
-            {categories.map((category) => (
-              <Categories.Category
-                key={category.id}
-                categoryName={category.categoryName}
-                categoryColor={category.color}
-                selected={category.id === selectedCategory ? true : false}
-                onClick={() => handleClick(category.id)}
-                onEdit={() => {
-                  setshowEditCategory(true);
-                  setShowCategories(false);
-                }}
-              />
-            ))}
+            {categories
+              ? categories.map((category) => (
+                  <Categories.Category
+                    key={category.id}
+                    categoryName={category.categoryName}
+                    categoryColor={category.color}
+                    selected={category.id === selectedCategory ? true : false}
+                    onClick={() => handleClick(category.id)}
+                    onEdit={() => {
+                      setshowEditCategory(true);
+                      setShowCategories(false);
+                    }}
+                  />
+                ))
+              : null}
           </Categories>
           <Categories.AddCategory
             onClick={() => {

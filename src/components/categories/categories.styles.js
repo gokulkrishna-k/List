@@ -59,7 +59,7 @@ export const Category = styled.div`
     top: 50%;
     right: 3px;
     transform: translateY(-50%);
-    color: #5f6368;
+    color: var(--primary-text-color);
     display: none;
     padding: 4px 0px;
   }
@@ -152,7 +152,6 @@ export const ColorPicker = styled.div`
   border-radius: 1px;
   overflow: hidden;
   border: solid 1px var(--line-color);
-  /* background-color: var(--primary-input-color); */
 
   & > .chrome-picker {
     all: unset;

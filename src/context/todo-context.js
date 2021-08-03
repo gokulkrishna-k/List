@@ -5,8 +5,8 @@ const defaultState = {
   user: JSON.parse(localStorage.getItem('authUser')),
   selectedCategory: 'All',
   selectedTheme: 'dark',
-  categories: [],
-  todos: [],
+  categories: null,
+  todos: null,
 };
 
 const todoReducer = (state, action) => {

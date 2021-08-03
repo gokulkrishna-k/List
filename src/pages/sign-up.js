@@ -12,9 +12,12 @@ const SignUp = () => {
     <LoginPageWrapper>
       <Header>
         <Logo />
-        <Header.Button onClick={() => history.push(ROUTES.SIGN_IN)}>
-          Sign In
-        </Header.Button>
+        <Header.Group>
+          <Header.ThemeButton />
+          <Header.Button onClick={() => history.push(ROUTES.SIGN_IN)}>
+            Sign In
+          </Header.Button>
+        </Header.Group>
       </Header>
       <SignUpForm />
     </LoginPageWrapper>

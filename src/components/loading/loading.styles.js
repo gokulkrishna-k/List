@@ -1,13 +1,12 @@
 import styled from 'styled-components/macro';
 
 export const Container = styled.div`
-  height: calc(100vh - 50px);
+  height: 100vh;
+  width: 100vw;
   overflow: hidden;
+  background-color: var(--main-bg-color);
+  color: var(--primary-text-color);
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  flex-direction: row;
-  max-width: 1920px;
-  margin: auto;
-  position: relative;
 `;

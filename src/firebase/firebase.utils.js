@@ -1,7 +1,11 @@
 import { firestore } from './firebase';
 import { v4 as uuid } from 'uuid';
 
-export const createUserProfileDocumnet = async (authUser, aditionalData) => {
+export const createUserProfileDocumnet = async (
+  authUser,
+  redirect,
+  aditionalData
+) => {
   if (!authUser) return;
 
   const userRef = firestore.doc(`users/${authUser.uid}`);
@@ -11,16 +15,30 @@ export const createUserProfileDocumnet = async (authUser, aditionalData) => {
     const createdAt = new Date();
 
     try {
-      await userRef.set({
-        displayName: authUser.displayName,
-        email: authUser.email,
-        createdAt,
-        userData: {
-          categories: [],
-          todos: [],
-        },
-        ...aditionalData,
-      });
+      await userRef
+        .set({
+          displayName: authUser.displayName,
+          email: authUser.email,
+          createdAt,
+          userData: {
+            categories: [
+              {
+                id: '2343-4324243-4323434-3423412-4324',
+                color: '#7289da',
+                categoryName: 'General',
+              },
+            ],
+            todos: [
+              {
+                category: '2343-4324243-4323434-3423412-4324',
+                todo: 'Welcome to List. :)',
+                id: '23445-23232-6776767-332',
+              },
+            ],
+          },
+          ...aditionalData,
+        })
+        .then(() => setTimeout(() => redirect(), 5000));
     } catch (error) {
       alert(error.message);
     }

@@ -6,7 +6,7 @@ import { addCategory } from '../firebase/firebase.utils';
 const AddCategoryForm = ({ setshowAddCategory, setShowCategories }) => {
   const { state, dispatch } = useContext(TodoListContext);
 
-  const [categoryColor, setCategoryColor] = useState('#1665d8');
+  const [categoryColor, setCategoryColor] = useState('#7289da');
   const [categoryName, setCategoryName] = useState('');
 
   const handleChange = (e) => {

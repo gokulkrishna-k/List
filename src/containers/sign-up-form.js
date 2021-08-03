@@ -11,24 +11,29 @@ const SignUpForm = () => {
   const [userName, setUserName] = useState('');
   const [emailAddress, setEmailAddress] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const isInvalid = userName === '' || password === '' || emailAddress === '';
 
   const handleSignUp = async (event) => {
     event.preventDefault();
+    setLoading(true);
     try {
+      const redirect = () => history.push(ROUTES.HOME);
       const userAuth = await auth.createUserWithEmailAndPassword(
         emailAddress,
         password
       );
       await userAuth.user.updateProfile({ displayName: userName });
-      await createUserProfileDocumnet(userAuth.user);
+      await createUserProfileDocumnet(userAuth.user, redirect);
 
-      history.push(ROUTES.HOME);
+      setLoading(false);
     } catch (error) {
       setUserName('');
       setEmailAddress('');
       setPassword('');
+      setLoading(false);
+
       console.log(error);
     }
   };
@@ -59,7 +64,9 @@ const SignUpForm = () => {
           onChange={({ target }) => setPassword(target.value)}
         />
 
-        <LoginForm.Button type='submit'>Sign Up</LoginForm.Button>
+        <LoginForm.Button type='submit' loading={loading} disabled={isInvalid}>
+          Sign Up
+        </LoginForm.Button>
       </LoginForm.Form>
     </LoginForm>
   );

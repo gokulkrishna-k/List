@@ -8,6 +8,10 @@ export const Container = styled.div`
   height: 100%;
   width: calc(100% - 250px);
   padding-top: 1rem;
+
+  @media (max-width: 700px) {
+    width: calc(100%);
+  }
 `;
 
 export const Title = styled.h1`

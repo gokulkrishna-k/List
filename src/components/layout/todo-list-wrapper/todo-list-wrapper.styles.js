@@ -12,7 +12,7 @@ export const Container = styled(motion.div)`
   margin-top: 0;
   margin-bottom: 1rem;
   overflow-y: scroll;
-  height: auto;
+  height: 100%;
 
   &::-webkit-scrollbar-track {
     border-radius: 1px;
@@ -24,6 +24,20 @@ export const Container = styled(motion.div)`
   &::-webkit-scrollbar-thumb {
     border-radius: 1px;
     background-color: #cfcfcf;
+  }
+
+  @media (max-width: 500px) {
+    &::-webkit-scrollbar-track {
+      border-radius: 1px;
+    }
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 1px;
+      background-color: #cfcfcf;
+    }
   }
 `;
 

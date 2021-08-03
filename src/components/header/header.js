@@ -1,15 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import {
-  Container,
-  Button,
-  Profile,
-  Dropdown,
-  DropdownItem,
-  Text,
-  ThemeButton,
-} from './header.styles';
-import { MoonIcon, SunIcon } from '@heroicons/react/solid';
+import { Container, Group, Button, Burger, ThemeButton } from './header.styles';
+import { MoonIcon, SunIcon, MenuIcon } from '@heroicons/react/solid';
+import { TodoListContext } from '../../context/todo-context';
 
 export default function Header({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
@@ -19,25 +12,29 @@ Header.Button = function HeaderButton({ children, ...restProps }) {
   return <Button {...restProps}>{children}</Button>;
 };
 
-Header.Profile = function HeaderProfile({ displayName, ...restPorps }) {
-  return <Profile {...restPorps}>g</Profile>;
+Header.Group = function HeaderGroup({ children, ...restProps }) {
+  return <Group {...restProps}>{children}</Group>;
 };
 
-Header.Dropdown = function HeaderDropdown({ children, ...restProps }) {
-  return <Dropdown {...restProps}>{children}</Dropdown>;
-};
-
-Header.DropdownItem = function HeaderDropdownItem({ children, ...restProps }) {
-  return <DropdownItem {...restProps}>{children}</DropdownItem>;
-};
-
-Header.Text = function HeaderText({ children, ...restProps }) {
-  return <Text {...restProps}>{children}</Text>;
-};
-
-Header.ThemeButton = function HeaderThemeButton({ theme, ...restProps }) {
+Header.Burger = function HeaderBurger({ ...restProps }) {
   return (
-    <ThemeButton {...restProps}>
+    <Burger {...restProps}>
+      <MenuIcon height='30px' />
+    </Burger>
+  );
+};
+
+Header.ThemeButton = function HeaderThemeButton({ ...restProps }) {
+  const { state, dispatch } = useContext(TodoListContext);
+  const toggleTheme = () => {
+    dispatch({
+      type: 'SET_THEME',
+      payload: state.selectedTheme === 'light' ? 'dark' : 'light',
+    });
+  };
+  const theme = state.selectedTheme;
+  return (
+    <ThemeButton onClick={toggleTheme} {...restProps}>
       {theme === 'light' ? (
         <MoonIcon height='24px' />
       ) : (
