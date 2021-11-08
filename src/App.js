@@ -1,7 +1,8 @@
 import React, { useContext, useEffect } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import { Home, SignIn, SignUp, Landing } from './pages';
+import { Home, SignIn, SignUp } from './pages';
+import LandingPage from './pages/landing';
 import * as ROUTES from './constants/routes';
 import { IsUserRedirect, ProtectedRoute } from './helpers/routes';
 import { ThemeProvider } from 'styled-components';
@@ -63,7 +64,7 @@ const App = () => {
             loggedInPath={ROUTES.HOME}
             path={ROUTES.LANDING}
           >
-            <Landing />
+            <LandingPage />
           </IsUserRedirect>
         </Switch>
       </Router>

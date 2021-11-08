@@ -1,10 +1,12 @@
 import React from 'react';
 
-import { Header, Logo } from '../components';
+import { Header, Logo, Landing } from '../components';
 import * as ROUTES from '../constants/routes';
 import { useHistory } from 'react-router-dom';
+import Mockup from '../assets/MOCKUP.png';
+import { LandingPageWrapper } from '../components';
 
-const Landing = () => {
+const LandingPage = () => {
   const history = useHistory();
 
   return (
@@ -18,9 +20,26 @@ const Landing = () => {
           </Header.Button>
         </Header.Group>
       </Header>
-      <h1 style={{ textAlign: 'center' }}>Working On it!!!</h1>
+      {/* <LandingPageWrapper> */}
+      <Landing>
+        <Landing.ContentContainer>
+          <Landing.Title>List</Landing.Title>
+          <Landing.Info>
+            A simple and fast To-Do List that makes it easy to plan and organize
+            your daily tasks.
+          </Landing.Info>
+          <Landing.ButtonContainer>
+            <Landing.Button>Sign in to the app</Landing.Button>
+            <Landing.Text>
+              No account ? <Landing.Link>Sign Up</Landing.Link>
+            </Landing.Text>
+          </Landing.ButtonContainer>
+        </Landing.ContentContainer>
+        <Landing.Image src={Mockup} />
+      </Landing>
+      {/* </LandingPageWrapper> */}
     </>
   );
 };
 
-export default Landing;
+export default LandingPage;
