@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { Header, Logo, Landing } from '../components';
 import * as ROUTES from '../constants/routes';
 import { useHistory } from 'react-router-dom';
-import Mockup from '../assets/MOCKUP.png';
+import MockupLight from '../assets/mockup-light.png';
+import MockupDark from '../assets/mockup-dark.png';
 import { LandingPageWrapper } from '../components';
+import { TodoListContext } from '../context/todo-context';
 
 const LandingPage = () => {
   const history = useHistory();
-
+  const { state, dispatch } = useContext(TodoListContext);
+  const theme = state.selectedTheme;
   return (
     <>
       <Header>
@@ -29,13 +32,19 @@ const LandingPage = () => {
             your daily tasks.
           </Landing.Info>
           <Landing.ButtonContainer>
-            <Landing.Button>Sign in to the app</Landing.Button>
+            <Landing.Button onClick={() => history.push(ROUTES.SIGN_IN)}>
+              Sign in to the app
+            </Landing.Button>
             <Landing.Text>
-              No account ? <Landing.Link>Sign Up</Landing.Link>
+              No account ? <Landing.Link to='/signup'>Sign Up</Landing.Link>
             </Landing.Text>
           </Landing.ButtonContainer>
         </Landing.ContentContainer>
-        <Landing.Image src={Mockup} />
+        {theme === 'light' ? (
+          <Landing.Image src={MockupLight} />
+        ) : (
+          <Landing.Image src={MockupDark} />
+        )}
       </Landing>
       {/* </LandingPageWrapper> */}
     </>

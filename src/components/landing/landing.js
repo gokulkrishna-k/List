@@ -11,7 +11,6 @@ import {
   ButtonContainer,
   Image,
 } from './landing.styles';
-
 export default function Landing({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
 }
