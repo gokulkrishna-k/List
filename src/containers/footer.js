@@ -10,6 +10,7 @@ const FooterContainer = ({ ...restProps }) => {
           style={{ color: '#7289da', textDecoration: 'none' }}
           href='https://github.com/gokulkrishna-k'
           target='_blank'
+          rel='noreferrer'
         >
           Gokul Krishna K
         </a>

@@ -50,17 +50,20 @@ export const createUserProfileDocumnet = async (
 export const addTodoItem = async (itemToAdd, state) => {
   const prevTodos = state.todos;
   const userRef = firestore.doc(`users/${state.user.uid}`);
-
-  try {
-    await userRef.update({
-      userData: {
-        categories: state.categories,
-        todos: [{ id: uuid(), ...itemToAdd }, ...prevTodos],
-      },
-    });
-  } catch (error) {
-    console.log(error.message);
+  const limit = prevTodos.length;
+  if (limit < 69) {
+    try {
+      await userRef.update({
+        userData: {
+          categories: state.categories,
+          todos: [{ id: uuid(), ...itemToAdd }, ...prevTodos],
+        },
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
   }
+  return;
 };
 
 export const deleteTodoItem = async (itemToDeleteId, state) => {
@@ -84,17 +87,19 @@ export const deleteTodoItem = async (itemToDeleteId, state) => {
 export const addCategory = async (categoryToAdd, state) => {
   const { todos, categories } = state;
   const userRef = firestore.doc(`users/${state.user.uid}`);
-
-  try {
-    await userRef.update({
-      userData: {
-        categories: [...categories, { id: uuid(), ...categoryToAdd }],
-        todos: todos,
-      },
-    });
-  } catch (error) {
-    console.log(error.message);
+  if (categories.length < 10) {
+    try {
+      await userRef.update({
+        userData: {
+          categories: [...categories, { id: uuid(), ...categoryToAdd }],
+          todos: todos,
+        },
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
   }
+  return;
 };
 
 export const deleteCategory = async (categoryIdToDelete, state) => {

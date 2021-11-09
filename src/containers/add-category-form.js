@@ -4,7 +4,7 @@ import { TodoListContext } from '../context/todo-context';
 import { addCategory } from '../firebase/firebase.utils';
 
 const AddCategoryForm = ({ setshowAddCategory, setShowCategories }) => {
-  const { state, dispatch } = useContext(TodoListContext);
+  const { state } = useContext(TodoListContext);
 
   const [categoryColor, setCategoryColor] = useState('#7289da');
   const [categoryName, setCategoryName] = useState('');

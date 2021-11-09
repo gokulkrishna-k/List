@@ -5,32 +5,6 @@
 }
 
 body {
-  /* Light Theme */
-
-  /* --primary-text-color: #172b4d;
-  --primary-color: #7289da;
-  --primary-color-hover: #5874d8;
-  --sidebar-color: #f6f6f6;
-  --category-color: #ffffff;
-  --categoy-select: #ffffff;
-  --main-bg-color: #ffffff;
-  --todo-item-color: #ffffff;*/
-  /* --line-color: #464646; */
-  /* --primary-input-color: #ffffff;  */
-
-  /* Dark Theme */
-
-  /* --primary-text-color: #f8fafe;
-  --primary-color: #7289da;
-  --primary-color-hover: #5874d8;
-  --sidebar-color: #181b1d;
-  --category-color: #383d41;
-  --categoy-select: #292d30;
-  --main-bg-color: #202124;
-  --todo-item-color: #292d30;
-  --line-color: transparent;
-  --primary-input-color: #303338; */
-
   margin: 0;
   font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
     'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue';

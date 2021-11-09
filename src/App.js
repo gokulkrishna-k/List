@@ -32,6 +32,7 @@ const App = () => {
       }
     });
     return () => listener();
+    // eslint-disable-next-line
   }, []);
 
   const user = state.user;

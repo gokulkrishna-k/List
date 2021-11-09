@@ -10,7 +10,7 @@ import { TodoListContext } from '../context/todo-context';
 import { AnimatePresence } from 'framer-motion';
 
 const Todos = ({ category, setSidebar, ...restProps }) => {
-  const { state, dispatch } = useContext(TodoListContext);
+  const { state } = useContext(TodoListContext);
   const { todos, selectedCategory } = state;
 
   const [todoInput, setTodoInput] = useState('');
@@ -23,12 +23,12 @@ const Todos = ({ category, setSidebar, ...restProps }) => {
     e.preventDefault();
     if (todoInput === '') return;
     const itemToAdd = { todo: todoInput, category: selectedCategory };
-    addTodoItem(itemToAdd, state, dispatch);
+    addTodoItem(itemToAdd, state);
     setTodoInput('');
   };
 
   const handleDelete = (id) => {
-    deleteTodoItem(id, state, dispatch);
+    deleteTodoItem(id, state);
   };
 
   const getCategory = (categoryId) => {

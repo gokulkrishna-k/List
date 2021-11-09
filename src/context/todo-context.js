@@ -22,11 +22,6 @@ const todoReducer = (state, action) => {
         todos: action.payload.todos,
         categories: action.payload.categories,
       };
-    case 'SET_TODOS':
-      return {
-        ...state,
-        todos: action.payload,
-      };
     case 'SET_CATEGORY':
       return {
         ...state,
@@ -37,6 +32,9 @@ const todoReducer = (state, action) => {
         ...state,
         selectedTheme: action.payload,
       };
+
+    default:
+      return state;
   }
 };
 export const TodoListProvider = ({ children }) => {

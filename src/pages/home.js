@@ -10,7 +10,7 @@ const Home = () => {
   const { state, dispatch } = useContext(TodoListContext);
   const [loading, setLoading] = useState(true);
   const [sidebar, setSidebar] = useState(false);
-  const { user, todos } = state;
+  const { user } = state;
   window.scrollTo(0, 0);
   useEffect(() => {
     if (user) {
@@ -33,6 +33,7 @@ const Home = () => {
         console.log(error.message);
       }
     }
+    // eslint-disable-next-line
   }, []);
 
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, DeleteButton, Container } from './todo-item.styles';
-import { TrashIcon, XCircleIcon } from '@heroicons/react/solid';
+import { XCircleIcon } from '@heroicons/react/solid';
 
 const item = {
   hidden: { opacity: 0 },
