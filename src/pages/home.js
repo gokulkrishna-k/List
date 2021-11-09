@@ -11,7 +11,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [sidebar, setSidebar] = useState(false);
   const { user, todos } = state;
-
+  window.scrollTo(0, 0);
   useEffect(() => {
     if (user) {
       try {

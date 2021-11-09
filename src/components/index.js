@@ -8,6 +8,7 @@ export { default as LoginForm } from './login-form/login-form';
 export { default as Header } from './header/header';
 export { default as Loading } from './loading/loading';
 export { default as Landing } from './landing/landing';
+export { default as Footer } from './footer/footer';
 
 // Layout Wrappers
 export { default as HomePageWrapper } from './layout/homepage-wrapper/homepage-wrapper';

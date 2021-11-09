@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 
-import { Header, Logo, Landing } from '../components';
+import { Header, Logo, Landing, Footer } from '../components';
 import * as ROUTES from '../constants/routes';
 import { useHistory } from 'react-router-dom';
 import MockupLight from '../assets/mockup-light.png';
 import MockupDark from '../assets/mockup-dark.png';
 import { LandingPageWrapper } from '../components';
 import { TodoListContext } from '../context/todo-context';
+import { FooterContainer } from '../containers';
 
 const LandingPage = () => {
   const history = useHistory();
@@ -14,6 +15,7 @@ const LandingPage = () => {
   const theme = state.selectedTheme;
   return (
     <>
+      {/* <LandingPageWrapper> */}
       <Header>
         <Logo />
         <Header.Group>
@@ -23,7 +25,7 @@ const LandingPage = () => {
           </Header.Button>
         </Header.Group>
       </Header>
-      {/* <LandingPageWrapper> */}
+
       <Landing>
         <Landing.ContentContainer>
           <Landing.Title>List</Landing.Title>
@@ -46,6 +48,7 @@ const LandingPage = () => {
           <Landing.Image src={MockupDark} />
         )}
       </Landing>
+      <FooterContainer />
       {/* </LandingPageWrapper> */}
     </>
   );

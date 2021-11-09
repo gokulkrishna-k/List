@@ -10,5 +10,5 @@ export const Container = styled.div`
   background-position: center;
   background-size: cover;
   background-color: var(--sidebar-color);
-  min-height: 100vh;
+  min-height: 95vh;
 `;
